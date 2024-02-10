@@ -1,10 +1,12 @@
 import { api } from "boot/axios";
 import { useAuthStore } from "stores/auth-store";
 import { Notify } from "quasar";
+import { Loading } from "quasar";
 
 export async function login(email, password) {
   try {
     const authStore = useAuthStore();
+    Loading.show();
     const response = await api.post("/api/v1/auth/login", {
       phone: email,
       password,
@@ -29,12 +31,15 @@ export async function login(email, password) {
       icon: "report_problem",
     });
     throw error;
+  } finally {
+    Loading.hide();
   }
 }
 
 export async function register(email, username, password) {
   try {
     const authStore = useAuthStore();
+    Loading.show();
     const response = await api.post("/api/v1/auth/register", {
       phone: email,
       username,
@@ -59,6 +64,8 @@ export async function register(email, username, password) {
       icon: "report_problem",
     });
     throw error;
+  } finally {
+    Loading.hide();
   }
 }
 
@@ -76,6 +83,7 @@ export function logout() {
 export async function getUser() {
   try {
     const authStore = useAuthStore();
+    Loading.show();
     // const response = await api.post("/api/v1/auth/getuser").then((response) => {
     //   authStore.setUser(response.data.user);
     // });
@@ -93,5 +101,7 @@ export async function getUser() {
       icon: "report_problem",
     });
     throw error;
+  } finally {
+    Loading.hide();
   }
 }

@@ -5,7 +5,7 @@ import { LocalStorage } from "quasar";
 export const useNewsStore = defineStore("news", {
   state: () => ({
     page: {},
-    news: {},
+    news: [],
   }),
   actions: {
     setPage(page) {
