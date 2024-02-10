@@ -2,7 +2,9 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <div class="row justify-between items-center no-wrap full-width">
+        <div
+          class="row justify-between items-center no-wrap full-width no-margin no-padding"
+        >
           <div class="col-2 col-md-1 text-left row no-wrap items-center">
             <q-btn
               class="lt-md"
@@ -13,7 +15,7 @@
               aria-label="Menu"
               @click="toggleLeftDrawer"
             />
-            <div>Yahchal</div>
+            <div><q-btn flat href="/">Yahchal</q-btn></div>
           </div>
           <div class="row no-wrap gt-sm">
             <EssentialLinkTop
@@ -22,7 +24,29 @@
               v-bind="link"
             />
           </div>
-          <div class="col-3 col-md-2 text-right">User</div>
+          <div class="col-3 col-md-2 text-right">
+            <q-btn flat>
+              <q-item>
+                <q-item-section avatar>
+                  <q-avatar>
+                    <img
+                      src="https://cdn.quasar.dev/img/avatar6.jpg"
+                      draggable="false"
+                    />
+                  </q-avatar>
+                </q-item-section>
+                <q-item-section>Plany plany</q-item-section>
+              </q-item>
+              <q-menu fit anchor="bottom left" self="top start">
+                <q-item clickable>
+                  <q-item-section>New tab</q-item-section>
+                </q-item>
+                <q-item clickable>
+                  <q-item-section>New incognito tab</q-item-section>
+                </q-item>
+              </q-menu>
+            </q-btn>
+          </div>
         </div>
       </q-toolbar>
     </q-header>
@@ -70,6 +94,12 @@ const linksList = [
     caption: "chat.quasar.dev",
     icon: "chat",
     link: "https://chat.quasar.dev",
+  },
+  {
+    title: "Relax",
+    caption: "Calm down",
+    icon: "chat",
+    link: "/relax",
   },
   {
     title: "About us",
