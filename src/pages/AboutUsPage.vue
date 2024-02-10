@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center">
-    <h1>{{ $route.path }}</h1>
+    <h1>About us</h1>
   </q-page>
 </template>
 
@@ -8,6 +8,6 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "UserBlogsPage",
+  name: "AboutUsPage",
 });
 </script>

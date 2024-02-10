@@ -5,6 +5,29 @@ const routes = [
     children: [
       { path: "", component: () => import("pages/IndexPage.vue") },
       { path: "relax", component: () => import("pages/RelaxPage.vue") },
+      { path: "aboutus", component: () => import("pages/AboutUsPage.vue") },
+      { path: "news", component: () => import("pages/news/NewsListPage.vue") },
+      {
+        path: "new/:id",
+        component: () => import("pages/news/NewsDetailPage.vue"),
+      },
+      { path: "blogs", component: () => import("pages/blog/BlogListPage.vue") },
+      {
+        path: "blog/:id",
+        component: () => import("pages/blog/BlogDetailPage.vue"),
+      },
+      {
+        path: "blog/:id/crud",
+        component: () => import("pages/blog/BlogCrudPage.vue"),
+      },
+      {
+        path: "meteomap",
+        component: () => import("pages/MeteoAppPage.vue"),
+      },
+      {
+        path: "simulate",
+        component: () => import("pages/SimulateAppPage.vue"),
+      },
     ],
   },
   {

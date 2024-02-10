@@ -24,7 +24,7 @@
               v-bind="link"
             />
           </div>
-          <div class="col-3 col-md-2 text-right">
+          <div class="col-5 col-md-2 text-right">
             <q-btn flat>
               <q-item>
                 <q-item-section avatar>
@@ -37,14 +37,7 @@
                 </q-item-section>
                 <q-item-section>Plany plany</q-item-section>
               </q-item>
-              <q-menu fit anchor="bottom left" self="top start">
-                <q-item clickable>
-                  <q-item-section>New tab</q-item-section>
-                </q-item>
-                <q-item clickable>
-                  <q-item-section>New incognito tab</q-item-section>
-                </q-item>
-              </q-menu>
+              <UserLink />
             </q-btn>
           </div>
         </div>
@@ -73,27 +66,34 @@
 
 <script>
 import { defineComponent, ref } from "vue";
-import EssentialLink from "components/EssentialLink.vue";
-import EssentialLinkTop from "components/EssentialLinkTop.vue";
+import EssentialLink from "components/navbar/EssentialLink.vue";
+import EssentialLinkTop from "components/navbar/EssentialLinkTop.vue";
+import UserLink from "src/components/navbar/UserLink.vue";
 
 const linksList = [
   {
     title: "Blog",
     caption: "Climate blog",
     icon: "school",
-    link: "https://quasar.dev",
+    link: "/blogs",
   },
   {
     title: "News",
     caption: "Keep in touch",
     icon: "code",
-    link: "https://github.com/quasarframework",
+    link: "/news",
   },
   {
     title: "Meteo Map",
     caption: "chat.quasar.dev",
     icon: "chat",
-    link: "https://chat.quasar.dev",
+    link: "/meteomap",
+  },
+  {
+    title: "Climate Sim",
+    caption: "chat.quasar.dev",
+    icon: "chat",
+    link: "/simulate",
   },
   {
     title: "Relax",
@@ -105,7 +105,7 @@ const linksList = [
     title: "About us",
     caption: "Nice to meet you",
     icon: "record_voice_over",
-    link: "https://forum.quasar.dev",
+    link: "/aboutus",
   },
 ];
 
@@ -115,6 +115,7 @@ export default defineComponent({
   components: {
     EssentialLink,
     EssentialLinkTop,
+    UserLink,
   },
 
   setup() {
