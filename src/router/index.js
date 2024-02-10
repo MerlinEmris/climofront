@@ -6,6 +6,8 @@ import {
   createWebHashHistory,
 } from "vue-router";
 import routes from "./routes";
+import { LocalStorage } from "quasar";
+import { getUser } from "components/auth/services/authService";
 
 /*
  * If not building with SSR mode, you can
@@ -32,6 +34,21 @@ export default route(function (/* { store, ssrContext } */) {
     // quasar.conf.js -> build -> publicPath
     history: createHistory(process.env.VUE_ROUTER_BASE),
   });
+
+  Router.beforeEach((to, from, next) => {
+    if (to.meta.requiresAuth && !isLoggedIn()) {
+      // Redirect to login if the route requires authentication and the user is not logged in
+      next("/auth/login");
+    } else {
+      getUser();
+      next(); // Proceed to the next route
+    }
+  });
+
+  function isLoggedIn() {
+    const token = LocalStorage.getItem("token");
+    return !!token;
+  }
 
   return Router;
 });

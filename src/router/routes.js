@@ -29,6 +29,9 @@ const routes = [
         component: () => import("pages/SimulateAppPage.vue"),
       },
     ],
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: "/auth/",
@@ -37,6 +40,10 @@ const routes = [
       {
         path: "login",
         component: () => import("pages/auth/AuthLoginPage.vue"),
+      },
+      {
+        path: "resgistration",
+        component: () => import("pages/auth/AuthRegistrationPage.vue"),
       },
     ],
   },

@@ -18,6 +18,7 @@
       </q-card-section>
       <q-card-section>
         <q-btn
+          @click="loginAction"
           style="border-radius: 8px"
           color="dark"
           rounded
@@ -31,7 +32,7 @@
         <div class="text-grey-8">
           Don't have an account yet?
           <a
-            href="#"
+            href="/auth/resgistration"
             class="text-dark text-weight-bold"
             style="text-decoration: none"
             >Sign up.</a
@@ -44,13 +45,30 @@
 
 <script>
 import { defineComponent, ref } from "vue";
+import { login } from "components/auth/services/authService";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "LogIn",
   setup() {
+    const route = useRouter();
+    const email = ref("");
+    const password = ref("");
+
+    const loginAction = async () => {
+      try {
+        await login(email.value, password.value).then(() => {
+          route.push("/");
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     return {
-      email: ref(""),
-      password: ref(""),
+      email,
+      password,
+      loginAction,
     };
   },
 });

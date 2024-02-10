@@ -5,7 +5,7 @@
         <div
           class="row justify-between items-center no-wrap full-width no-margin no-padding"
         >
-          <div class="col-2 col-md-1 text-left row no-wrap items-center">
+          <div class="col-4 col-md-2 text-left row no-wrap items-center">
             <q-btn
               class="lt-md"
               flat
@@ -15,7 +15,14 @@
               aria-label="Menu"
               @click="toggleLeftDrawer"
             />
-            <div><q-btn flat href="/">Yahchal</q-btn></div>
+            <div>
+              <q-btn class="row no-wrap" flat href="/"
+                ><img
+                  class="gt-sm"
+                  src="../assets/yahchal.png"
+                  width="36" /><img width="100" src="../assets/logotext.png"
+              /></q-btn>
+            </div>
           </div>
           <div class="row no-wrap gt-sm">
             <EssentialLinkTop
@@ -24,22 +31,7 @@
               v-bind="link"
             />
           </div>
-          <div class="col-5 col-md-2 text-right">
-            <q-btn flat>
-              <q-item>
-                <q-item-section avatar>
-                  <q-avatar>
-                    <img
-                      src="https://cdn.quasar.dev/img/avatar6.jpg"
-                      draggable="false"
-                    />
-                  </q-avatar>
-                </q-item-section>
-                <q-item-section>Plany plany</q-item-section>
-              </q-item>
-              <UserLink />
-            </q-btn>
-          </div>
+          <div class="col-8 col-md-3 text-right"><NavbarRight /></div>
         </div>
       </q-toolbar>
     </q-header>
@@ -47,7 +39,10 @@
     <q-drawer v-model="leftDrawerOpen" bordered>
       <q-list>
         <q-item-label header>
-          <q-toolbar-title> Yahchal </q-toolbar-title>
+          <q-toolbar-title class="row no-wrap items-center"
+            ><img class="lt-md" src="../assets/yahchal.png" width="36" />
+            <img width="100" src="../assets/logotext.png" />
+          </q-toolbar-title>
         </q-item-label>
 
         <EssentialLink
@@ -68,7 +63,7 @@
 import { defineComponent, ref } from "vue";
 import EssentialLink from "components/navbar/EssentialLink.vue";
 import EssentialLinkTop from "components/navbar/EssentialLinkTop.vue";
-import UserLink from "src/components/navbar/UserLink.vue";
+import NavbarRight from "components/navbar/NavbarRight.vue";
 
 const linksList = [
   {
@@ -115,7 +110,7 @@ export default defineComponent({
   components: {
     EssentialLink,
     EssentialLinkTop,
-    UserLink,
+    NavbarRight,
   },
 
   setup() {
