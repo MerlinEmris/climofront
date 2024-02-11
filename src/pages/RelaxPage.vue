@@ -1,6 +1,14 @@
 <template>
   <q-page class="flex flex-center">
-    <h1>Relax</h1>
+    <iframe
+      width="1080"
+      height="600"
+      src="https://www.youtube.com/embed/lE6RYpe9IT0?si=YXFyskaGDNczkQBM"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
   </q-page>
 </template>
 

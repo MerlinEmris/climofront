@@ -3,6 +3,9 @@
     <q-item clickable href="/user/profile">
       <q-item-section>Profile</q-item-section>
     </q-item>
+    <q-item clickable href="/user/posts">
+      <q-item-section>My Posts</q-item-section>
+    </q-item>
     <q-item clickable @click="logoutAction">
       <q-item-section>Log Out</q-item-section>
     </q-item>

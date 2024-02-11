@@ -36,7 +36,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" bordered>
+    <q-drawer v-model="leftDrawerOpen" bordered class="bg-blue-8">
       <q-list>
         <q-item-label header>
           <q-toolbar-title class="row no-wrap items-center"
@@ -49,6 +49,7 @@
           v-for="link in essentialLinks"
           :key="link.title"
           v-bind="link"
+          class=""
         />
       </q-list>
     </q-drawer>

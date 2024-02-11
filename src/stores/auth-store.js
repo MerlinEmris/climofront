@@ -6,11 +6,12 @@ export const useAuthStore = defineStore("auth", {
   state: () => ({
     token: LocalStorage.getItem("token") || null,
     refresh: LocalStorage.getItem("refresh") || null,
-    user: {},
+    user: JSON.parse(LocalStorage.getItem("user")) || null,
   }),
   actions: {
     setUser(user) {
       this.user = user;
+      LocalStorage.set("user", JSON.stringify(user));
     },
 
     setToken(token) {
@@ -32,10 +33,15 @@ export const useAuthStore = defineStore("auth", {
       this.refresh = null;
       LocalStorage.remove("refresh");
     },
+    removeUser() {
+      this.user = null;
+      LocalStorage.remove("user");
+    },
 
     logout() {
       this.removeRefresh();
       this.removeToken();
+      this.removeUser();
     },
   },
 });

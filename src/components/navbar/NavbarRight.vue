@@ -4,8 +4,8 @@
       <q-item-section avatar>
         <q-avatar>
           <img
-            :src="
-              user.image ? user.image : 'https://cdn.quasar.dev/img/avatar6.jpg'
+            src="
+             'https://cdn.quasar.dev/img/avatar6.jpg'
             "
             draggable="false"
           />
