@@ -6,6 +6,7 @@ export const useNewsStore = defineStore("news", {
   state: () => ({
     page: {},
     news: [],
+    newItem: {}
   }),
   actions: {
     setPage(page) {
@@ -14,5 +15,8 @@ export const useNewsStore = defineStore("news", {
     setNews(news) {
       this.news = news;
     },
+    setNewItem(newItem){
+      this.newItem = newItem
+    }
   },
 });

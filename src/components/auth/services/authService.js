@@ -7,12 +7,14 @@ export async function login(email, password) {
   try {
     const authStore = useAuthStore();
     Loading.show();
-    const response = await api.post("/api/v1/auth/login", {
-      phone: email,
+    const response = await api.post("/auth/login/", {
+      email,
       password,
     });
-    const token = response.data?.access;
-    const refresh = response.data?.refresh;
+    const token = response.data?.tokens.access;
+    const refresh = response.data?.tokens.refresh;
+    const user = {email: response.data.email, username: response.data.fullname}
+    authStore.setUser(user)
     authStore.setToken(token);
     authStore.setRefresh(refresh);
     Notify.create({
@@ -21,7 +23,7 @@ export async function login(email, password) {
       message: "Logged in!",
       icon: "check",
     });
-    await getUser();
+    // await getUser();
     return token;
   } catch (error) {
     Notify.create({
@@ -40,7 +42,7 @@ export async function register(email, username, password) {
   try {
     const authStore = useAuthStore();
     Loading.show();
-    const response = await api.post("/api/v1/auth/register", {
+    const response = await api.post("/auth/login/register/", {
       phone: email,
       username,
       password,

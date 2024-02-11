@@ -9,7 +9,9 @@ import { LocalStorage } from "quasar";
 // "export default () => {}" function below (which runs individually
 // for each client)
 const api = axios.create({
-  baseURL: "http://localhost:8000",
+  // baseURL: "http://localhost:8000",
+  baseURL: "http://192.168.100.42:8000",
+  headers: {"Content-Type": "application/json"},
   timeout: 10000,
 });
 
